@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Mirror Onyxia"
+run/main_scene="uid://bjue8feomyrmm"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=60
+config/icon="res://sprite/icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [physics]
 
