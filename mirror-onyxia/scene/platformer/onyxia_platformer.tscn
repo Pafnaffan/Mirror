@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dphluq5em2tcf"]
+
+[ext_resource type="Texture2D" uid="uid://b1w065r6l6l63" path="res://sprite/onyxia-frame0.png" id="1_jemwy"]
+[ext_resource type="Script" uid="uid://cnq2dsstotaad" path="res://script/platformer/onyxia_platformer.gd" id="1_nfpsg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfpsg"]
+size = Vector2(11, 22)
+
+[node name="onyxia_platformer" type="CharacterBody2D" unique_id=339428091]
+script = ExtResource("1_nfpsg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1021266967]
+texture = ExtResource("1_jemwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1418987396]
+position = Vector2(2.5, 2)
+shape = SubResource("RectangleShape2D_nfpsg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1344805843]
