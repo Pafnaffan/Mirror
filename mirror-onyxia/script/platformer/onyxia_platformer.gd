@@ -16,7 +16,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("mirror_action"):
 		for platform in get_tree().get_nodes_in_group("platforms"):
-			platform.set_active(not platform.visible)
+			if platform.is_primary and platform.mirror: 
+				platform.flip()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
