@@ -13,11 +13,17 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+			
+				
+	if Input.is_action_just_pressed("flip_vertical"):
+		WorldManager.flip(0b01)
 		
-	if Input.is_action_just_pressed("mirror_action"):
-		for platform in get_tree().get_nodes_in_group("platforms"):
-			if platform.is_primary and platform.mirror: 
-				platform.flip()
+	if Input.is_action_just_pressed("flip_horizontal"):
+		WorldManager.flip(0b10)
+		
+	if Input.is_action_just_pressed("flip_diagonal"):
+		WorldManager.flip(0b11)
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

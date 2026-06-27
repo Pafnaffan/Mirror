@@ -1,22 +1,28 @@
 extends StaticBody2D
 
-@export var mirror: NodePath
-@export var is_primary: bool = false
+enum WorldState {
+	ORIGINAL = 1,
+	VERTICAL = 2,
+	HORIZONTAL = 4,
+	DIAGONAL = 8,
+	ALWAYS = 15
+}
+
+@export var world_mask: WorldState = WorldState.ALWAYS
 
 func _ready() -> void:
 	add_to_group("platforms")
-	if not is_primary and has_node(mirror):
-		visible = false
-		$CollisionShape2D.disabled = true
+	WorldManager.world_changed.connect(update_state)
+	update_state(WorldManager.current_world)
 
+func update_state(new_world: int):
+	match world_mask:
+		WorldState.ORIGINAL : set_active(new_world == 0b00)
+		WorldState.VERTICAL : set_active(new_world == 0b01)
+		WorldState.HORIZONTAL : set_active(new_world == 0b10)
+		WorldState.DIAGONAL : set_active(new_world == 0b11)
+		WorldState.ALWAYS : set_active(true)
 
 func set_active(is_active: bool) -> void:
 	visible = is_active
 	$CollisionShape2D.disabled = not is_active
-
-func flip() -> void:
-	var twin = get_node(mirror)
-	var curr_state = visible
-	set_active(not curr_state)
-	twin.set_active(curr_state)
-	

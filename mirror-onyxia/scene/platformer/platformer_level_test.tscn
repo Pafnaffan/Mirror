@@ -30,10 +30,17 @@ position = Vector2(913, 939)
 scale = Vector2(2, 1)
 
 [node name="Platform2" parent="." unique_id=1679183159 instance=ExtResource("1_s53y1")]
-position = Vector2(556, 936)
-mirror = NodePath("../Platform3")
-is_primary = true
+position = Vector2(553, 896)
+world_mask = 1
+
+[node name="Platform5" parent="." unique_id=1339019060 instance=ExtResource("1_s53y1")]
+position = Vector2(601, 738)
+world_mask = 4
 
 [node name="Platform3" parent="." unique_id=1149359685 instance=ExtResource("1_s53y1")]
 position = Vector2(1237, 934)
-mirror = NodePath("../Platform2")
+world_mask = 2
+
+[node name="Platform6" parent="." unique_id=41724843 instance=ExtResource("1_s53y1")]
+position = Vector2(1192, 710)
+world_mask = 8
