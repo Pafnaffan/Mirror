@@ -17,3 +17,4 @@ position = Vector2(2.5, 2)
 shape = SubResource("RectangleShape2D_nfpsg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1344805843]
+visible = false

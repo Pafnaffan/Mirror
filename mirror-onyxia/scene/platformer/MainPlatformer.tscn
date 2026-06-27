@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://dc0ujht8ukyqo"]
 
-[ext_resource type="PackedScene" uid="uid://d1w5dowifxqyk" path="res://scene/platformer/platformer_level_test.tscn" id="1_7rxv2"]
-[ext_resource type="PackedScene" uid="uid://dphluq5em2tcf" path="res://scene/platformer/onyxia_platformer.tscn" id="2_3lb52"]
+[ext_resource type="PackedScene" uid="uid://d4gkt71fk6aak" path="res://scene/platformer/platformer_level_1.tscn" id="1_7rxv2"]
 
 [node name="MainPlatformer" type="Node2D" unique_id=388912573]
 
 [node name="platformer_level_test" parent="." unique_id=696564293 instance=ExtResource("1_7rxv2")]
-
-[node name="onyxia_platformer" parent="platformer_level_test" unique_id=339428091 instance=ExtResource("2_3lb52")]
-position = Vector2(44, 1056)
