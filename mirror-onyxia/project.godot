@@ -19,6 +19,7 @@ config/icon="res://sprite/icon.svg"
 [autoload]
 
 WorldManager="*uid://carrvw04u4v1e"
+LevelManager="*uid://pc30s228qlub"
 
 [display]
 

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d4gkt71fk6aak"]
 
 [ext_resource type="PackedScene" uid="uid://d1w5dowifxqyk" path="res://scene/platformer/platformer_level_base.tscn" id="1_vsgfu"]
+[ext_resource type="PackedScene" uid="uid://jirbm4k0wvu3" path="res://scene/platformer/level_exit.tscn" id="2_ljdhq"]
 
 [node name="platformer_level_test" unique_id=696564293 instance=ExtResource("1_vsgfu")]
 
@@ -21,3 +22,6 @@ tile_map_data = PackedByteArray("AAAmAAkAAAANAAAAAAAoAAkAAAAPAAAAAAAnAAkAAAAOAAA
 
 [node name="onyxia_platformer" parent="." index="5" unique_id=339428091]
 position = Vector2(27, 369)
+
+[node name="level_exit" parent="." index="6" unique_id=1711430791 instance=ExtResource("2_ljdhq")]
+position = Vector2(825, 272)
