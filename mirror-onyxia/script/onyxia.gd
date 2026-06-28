@@ -3,7 +3,7 @@ class_name Onyxia
 
 var sprite : Node;
 
-var change : bool = false;
+var change : bool = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,22 +11,22 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_up") :
-		scale.y = -scale.y;
-		change = true;
-		$changeTimer.start();
-	if position.x == 0 - sprite.texture.get_width() :
+	if Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_accept") :
+		if change :
+			scale.y = -scale.y;
+	if position.x <= 0 - $CollisionShape2D.shape.size.x :
 		queue_free()
 		#Game over
 
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bloc :
-		if change :
-			scale.y = -scale.y;
-		else :
-			position.x = area.position.x - (area.position.x - position.x)
+		position.x = area.position.x - area.shape.shape.size.x - 5
 
 
-func _on_change_timer_timeout() -> void:
-	change = false;
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	change = false
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	change = true

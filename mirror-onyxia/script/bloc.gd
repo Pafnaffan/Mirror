@@ -1,6 +1,8 @@
 extends Area2D
 class_name Bloc
 
+@onready var shape : CollisionShape2D = $CollisionShape2D;
+
 @export var vts : float;
 
 # Called when the node enters the scene tree for the first time.
