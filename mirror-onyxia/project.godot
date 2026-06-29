@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mirror Onyxia"
-run/main_scene="uid://dc0ujht8ukyqo"
+run/main_scene="uid://bt8ukx8qtysre"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
 config/icon="res://sprite/icon.svg"
@@ -19,6 +19,7 @@ config/icon="res://sprite/icon.svg"
 [autoload]
 
 WorldManager="*uid://carrvw04u4v1e"
+LevelManager="*uid://pc30s228qlub"
 
 [display]
 
