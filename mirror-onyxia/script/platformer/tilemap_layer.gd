@@ -10,13 +10,7 @@ extends TileMapLayer
 var containing_worlds: WorldManager.WorldsSet
 
 func _ready() -> void:
-	# Si cette assertion claque, c'est qu'il n'y a pas de correspondance entre
-	# select_axis et select_axis_states
-	assert(select_axis.size() == select_axis_states.size())
-	containing_worlds = WorldManager.WorldsSet.all_worlds()
-	for i in range(select_axis.size()):
-		containing_worlds.take_half(WorldManager.AxisId.from_axis_num(select_axis[i]), select_axis_states[i])
-		
+	containing_worlds = WorldManager.WorldsSet.from_axis_lists(select_axis, select_axis_states)
 	WorldManager.world_changed.connect(update_state)
 	update_state(WorldManager.current_world)
 

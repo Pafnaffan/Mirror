@@ -49,7 +49,6 @@ class WorldId:
 		id ^= flip.mask
 
 
-
 class WorldsSet:
 	var mask: int
 	var worlds: int
@@ -59,6 +58,15 @@ class WorldsSet:
 		# Avec un masque de 0 et une valeur significative de 0, on match tous les mondes
 		res.mask = 0
 		res.worlds = 0
+		return res
+		
+	static func from_axis_lists(select_axis: Array[int], select_axis_states: Array[bool]) -> WorldsSet:
+		# Si cette assertion claque, c'est qu'il n'y a pas de correspondance
+		# entre les numéros d'axes et leur état
+		assert(select_axis.size() == select_axis_states.size())
+		var res: WorldsSet = all_worlds()
+		for i in range(select_axis.size()):
+			res.take_half(AxisId.from_axis_num(select_axis[i]), select_axis_states[i])
 		return res
 
 	func take_half(axis: AxisId, flipped: bool):
