@@ -1,10 +1,10 @@
 extends Node
 
 signal world_changed(world: int)
-var current_world: int = 0b00
+var current_world: WorldId = WorldId.new()
 
 func flip(flip: Flip):
-	current_world ^= flip.mask
+	current_world.flip(flip)
 	emit_signal("world_changed", current_world)
 
 
@@ -44,6 +44,9 @@ class Flip:
 
 class WorldId:
 	var id: int
+	
+	func flip(flip: Flip):
+		id ^= flip.mask
 
 
 
