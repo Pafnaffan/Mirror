@@ -5,6 +5,20 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 
+class AxisId:
+	var id: int
+	func combine(rhs) -> AxisId:
+		var res: AxisId = AxisId.new()
+		res.id = id | rhs.id
+		return res
+
+
+func axis_num_to_id(axis_num: int) -> AxisId:
+	var axis_id: AxisId = AxisId.new()
+	axis_id.id = 1 << axis_num
+	return axis_id
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -16,13 +30,13 @@ func _physics_process(delta: float) -> void:
 			
 				
 	if Input.is_action_just_pressed("flip_vertical"):
-		WorldManager.flip(0b01)
+		WorldManager.flip(axis_num_to_id(0))
 		
 	if Input.is_action_just_pressed("flip_horizontal"):
-		WorldManager.flip(0b10)
+		WorldManager.flip(axis_num_to_id(1))
 		
 	if Input.is_action_just_pressed("flip_diagonal"):
-		WorldManager.flip(0b11)
+		WorldManager.flip(axis_num_to_id(0).combine(axis_num_to_id(1)))
 		
 
 	# Get the input direction and handle the movement/deceleration.
