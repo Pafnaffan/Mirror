@@ -1,25 +1,23 @@
 extends TileMapLayer
 
-enum WorldState {
-	ORIGINAL = 1,
-	VERTICAL = 2,
-	HORIZONTAL = 4,
-	DIAGONAL = 8,
-}
+# Les axes significatifs pour déterminer si on est dans le monde courant
+@export var select_axis: Array[int]
+# L'état de chaque axe déterminant, spécifiés respecitvement dans select_axis
+@export var select_axis_states: Array[bool]
+# J'aurais aimé pouvoir faire plus propre, mais les types possibles dans @export
+# sont limités...
 
-@export var world_mask: WorldState = WorldState.ORIGINAL
+var containing_worlds: WorldManager.WorldsSet
 
 func _ready() -> void:
+	containing_worlds = WorldManager.WorldsSet.from_axis_lists(select_axis, select_axis_states)
 	WorldManager.world_changed.connect(update_state)
 	update_state(WorldManager.current_world)
 
 
-func update_state(new_world: int):
-	match world_mask:
-		WorldState.ORIGINAL : set_active(new_world == 0b00)
-		WorldState.VERTICAL : set_active(new_world == 0b01)
-		WorldState.HORIZONTAL : set_active(new_world == 0b10)
-		WorldState.DIAGONAL : set_active(new_world == 0b11)
+func update_state(new_world: WorldManager.WorldId):
+	print("Transition to world ", new_world.id)
+	set_active(containing_worlds.matches(new_world))
 
 func set_active(is_active: bool) -> void:
 	visible = is_active
