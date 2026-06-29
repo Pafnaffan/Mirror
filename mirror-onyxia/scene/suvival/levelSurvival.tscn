@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bjue8feomyrmm"]
+
+[ext_resource type="Script" uid="uid://c542qv2dv4qek" path="res://scene/suvival/level_survival.gd" id="1_4bw0y"]
+[ext_resource type="Texture2D" uid="uid://xuvk82l2k7eq" path="res://sprite/mirror.png" id="2_3u7ho"]
+[ext_resource type="PackedScene" uid="uid://b8ynvsmvadl4l" path="res://scene/suvival/onyxia.tscn" id="3_x6cpp"]
+
+[node name="levelSurvival" type="Node2D" unique_id=980437088]
+script = ExtResource("1_4bw0y")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1832381997]
+position = Vector2(960, 540)
+texture = ExtResource("2_3u7ho")
+
+[node name="onyxia" parent="." unique_id=1459456187 instance=ExtResource("3_x6cpp")]
+position = Vector2(960, 540)
