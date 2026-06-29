@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bjue8feomyrmm"]
+
+[ext_resource type="Script" uid="uid://c542qv2dv4qek" path="res://script/level_survival.gd" id="1_4bw0y"]
+[ext_resource type="Texture2D" uid="uid://xuvk82l2k7eq" path="res://sprite/mirror.png" id="2_3u7ho"]
+[ext_resource type="PackedScene" uid="uid://bu5i02ub47n00" path="res://scene/suvival/blocspawner.tscn" id="2_x6cpp"]
+[ext_resource type="PackedScene" uid="uid://b8ynvsmvadl4l" path="res://scene/suvival/onyxia.tscn" id="3_x6cpp"]
+[ext_resource type="FontFile" uid="uid://duijacdjrm8uu" path="res://sprite/sburbits.ttf" id="5_x6cpp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5i1u"]
+font = ExtResource("5_x6cpp")
+font_size = 200
+
+[node name="levelSurvival" type="Node2D" unique_id=980437088]
+script = ExtResource("1_4bw0y")
+spawner = ExtResource("2_x6cpp")
+vtsPhase = 1000.0
+minSpawn = 0.28
+maxSpawn = 1.0
+timeWin = 60.0
+
+[node name="background" type="Sprite2D" parent="." unique_id=1832381997]
+position = Vector2(960, 540)
+texture = ExtResource("2_3u7ho")
+
+[node name="onyxia" parent="." unique_id=1459456187 instance=ExtResource("3_x6cpp")]
+position = Vector2(960, 540)
+
+[node name="TimeWin" type="Timer" parent="." unique_id=156871243]
+wait_time = 60.0
+one_shot = true
+
+[node name="Countdown" type="Label" parent="." unique_id=438998456]
+offset_left = 737.0
+offset_top = 24.0
+offset_right = 1183.0
+offset_bottom = 491.0
+text = "100
+"
+label_settings = SubResource("LabelSettings_a5i1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="TimeWin" to="." method="_on_time_win_timeout"]
