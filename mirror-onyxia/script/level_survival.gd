@@ -27,4 +27,5 @@ func _process(delta: float) -> void:
 
 
 func _on_time_win_timeout() -> void:
+	AudioManager.newstop_music();
 	LevelManager.complete_level_survival()

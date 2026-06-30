@@ -13,12 +13,17 @@ func _ready() -> void:
 	
 	add_child(menu_player)
 	add_child(level_player)
+	add_child(newmusic_player)
 	menu_player.stream = preload("res://sound/menu_music.mp3")
 	level_player.stream = preload("res://sound/platformer_music.mp3")
-	menu_player.volume_db = 0
-	level_player.volume_db = -80
-	menu_player.play()
-	level_player.play()
+	launch_menu_music();
+	
+func launch_menu_music() -> void:
+	if !menu_player.playing :
+		menu_player.volume_db = 0
+		level_player.volume_db = -80
+		menu_player.play()
+		level_player.play()
 	
 func fade_to_level() -> void:
 	if fade_tween:
@@ -61,3 +66,6 @@ func play_music(stream: AudioStream, loop: bool = true, vol: int = -80) -> void:
 
 func stop_music() -> void:
 	music_player.stop()
+	
+func newstop_music() -> void:
+	newmusic_player.stop()

@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 		if change :
 			scale.y = -scale.y;
 	if position.x <= 0 - $CollisionShape2D.shape.size.x :
+		AudioManager.newstop_music();
 		AudioManager.play_music(preload("res://sound/petitjoueur.mp3"),false,100);
 		get_tree().change_scene_to_file("res://scene/menu.tscn");
 
