@@ -10,15 +10,23 @@ tile_map_data = PackedByteArray("AADc//H/AAAIAAAAAADc//L/AAAIAAAAAADc//P/AAAIAAA
 
 [node name="TileMapPlatform_Original" parent="." index="1" unique_id=1613833232]
 tile_map_data = PackedByteArray("AAAUABQAAAANAAAAAAAVABQAAAAOAAAAAAAWABQAAAAPAAAAAAA=")
+select_axis = Array[int]([0, 1])
+select_axis_states = Array[bool]([false, false])
 
 [node name="TileMapPlatform_Horizontal" parent="." index="2" unique_id=753778054]
 tile_map_data = PackedByteArray("AAAUAAkAAAANAAAAAAAVAAkAAAAOAAAAAAAWAAkAAAAPAAAAAAA=")
+select_axis = Array[int]([0, 1])
+select_axis_states = Array[bool]([false, true])
 
 [node name="TileMapPlatform_Vertical" parent="." index="3" unique_id=389297498]
 tile_map_data = PackedByteArray("AAAmABQAAAANAAAAAAAnABQAAAAOAAAAAAAoABQAAAAPAAAAAAA=")
+select_axis = Array[int]([0, 1])
+select_axis_states = Array[bool]([true, false])
 
 [node name="TileMapPlatform_Diagonal" parent="." index="4" unique_id=1392982419]
 tile_map_data = PackedByteArray("AAAmAAkAAAANAAAAAAAoAAkAAAAPAAAAAAAnAAkAAAAOAAAAAAA=")
+select_axis = Array[int]([0, 1])
+select_axis_states = Array[bool]([true, true])
 
 [node name="onyxia_platformer" parent="." index="5" unique_id=339428091]
 position = Vector2(27, 369)

@@ -19,13 +19,20 @@ func _physics_process(delta: float) -> void:
 			
 				
 	if Input.is_action_just_pressed("flip_vertical"):
-		WorldManager.flip(0b01)
+		WorldManager.flip(WorldManager.Flip.from_axis_flips(
+			WorldManager.AxisId.from_axis_num(0),
+		))
 		
 	if Input.is_action_just_pressed("flip_horizontal"):
-		WorldManager.flip(0b10)
+		WorldManager.flip(WorldManager.Flip.from_axis_flips(
+			WorldManager.AxisId.from_axis_num(1),
+		))
 		
 	if Input.is_action_just_pressed("flip_diagonal"):
-		WorldManager.flip(0b11)
+		WorldManager.flip(WorldManager.Flip.from_axis_flips(
+			WorldManager.AxisId.from_axis_num(0),
+			WorldManager.AxisId.from_axis_num(1),
+		))
 		
 
 	# Get the input direction and handle the movement/deceleration.

@@ -8,11 +8,12 @@ func complete_level() -> void:
 		levels_unlocked += 1
 	WorldManager.current_world = 0b00
 	get_tree().change_scene_to_file("res://scene/menu.tscn");
+
 	
 func go_to_level(level: int) -> void:
 	if level <= levels_unlocked:
 		current_level = level
-		WorldManager.current_world = 0b00
+		WorldManager.current_world = WorldManager.WorldId.new()
 		get_tree().change_scene_to_file("res://scene/platformer/platformer_level_" + str(level) + ".tscn")
 
 func go_to_menu() -> void:
