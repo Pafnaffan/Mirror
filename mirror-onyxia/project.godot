@@ -20,6 +20,7 @@ config/icon="res://sprite/icon.svg"
 
 WorldManager="*uid://carrvw04u4v1e"
 LevelManager="*uid://pc30s228qlub"
+AudioManager="*uid://x2egu5sgv6ui"
 
 [display]
 
