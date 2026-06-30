@@ -112,17 +112,25 @@ tile_set = SubResource("TileSet_k8ll3")
 [node name="TileMapPlatform_Original" type="TileMapLayer" parent="." unique_id=1613833232]
 tile_set = SubResource("TileSet_k8ll3")
 script = ExtResource("2_vs5je")
+select_axis = Array[int]([0, 0])
+select_axis_states = Array[bool]([false, false])
 
 [node name="TileMapPlatform_Horizontal" type="TileMapLayer" parent="." unique_id=753778054]
 tile_set = SubResource("TileSet_k8ll3")
 script = ExtResource("2_vs5je")
+select_axis = Array[int]([0, 0])
+select_axis_states = Array[bool]([false, false])
 
 [node name="TileMapPlatform_Vertical" type="TileMapLayer" parent="." unique_id=389297498]
 tile_set = SubResource("TileSet_k8ll3")
 script = ExtResource("2_vs5je")
+select_axis = Array[int]([0, 0])
+select_axis_states = Array[bool]([false, false])
 
 [node name="TileMapPlatform_Diagonal" type="TileMapLayer" parent="." unique_id=1392982419]
 tile_set = SubResource("TileSet_k8ll3")
 script = ExtResource("2_vs5je")
+select_axis = Array[int]([0, 0])
+select_axis_states = Array[bool]([false, false])
 
 [node name="onyxia_platformer" parent="." unique_id=339428091 instance=ExtResource("3_fkudp")]
