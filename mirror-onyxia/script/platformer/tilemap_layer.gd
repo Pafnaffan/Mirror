@@ -17,6 +17,7 @@ func _ready() -> void:
 
 func update_state(new_world: WorldManager.WorldId):
 	print("Transition to world ", new_world.id)
+	print("The level : ", LevelManager.current_level)
 	set_active(containing_worlds.matches(new_world))
 
 func set_active(is_active: bool) -> void:

@@ -7,4 +7,8 @@ func _ready() -> void:
 
 func onyxia_leaving(body: Node) -> void:
 	if body.is_in_group("player"):
-		LevelManager.complete_level()
+		if LevelManager.current_level != 2:
+			LevelManager.complete_level()
+		if LevelManager.current_level == 2 and WorldManager.current_world.id == 3:
+			LevelManager.complete_level()
+		
