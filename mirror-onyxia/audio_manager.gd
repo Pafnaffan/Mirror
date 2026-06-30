@@ -3,6 +3,7 @@ extends Node
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var menu_player: AudioStreamPlayer = AudioStreamPlayer.new()
 @onready var level_player: AudioStreamPlayer = AudioStreamPlayer.new()
+@onready var newmusic_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var fade_tween: Tween
 
@@ -42,6 +43,16 @@ func fade_to_menu() -> void:
 	#fade_tween.tween_property(menu_player, "volume_db", 0, 0.5)
 	#fade_tween.tween_property(level_player, "volume_db", -80, 0.5)
 	fade_tween.tween_method(_set_crossfade_progress, 1.0, 0.0, 1)
+	
+func switch_to_new_music(stream: AudioStream, loop: bool = true, vol: int = -80) -> void:
+	if fade_tween:
+		fade_tween.kill()
+	menu_player.stop()
+	level_player.stop()
+	newmusic_player.stream = stream
+	newmusic_player.volume_db = vol
+	newmusic_player.play()
+	
 
 func play_music(stream: AudioStream, loop: bool = true, vol: int = -80) -> void:
 	music_player.stream = stream
