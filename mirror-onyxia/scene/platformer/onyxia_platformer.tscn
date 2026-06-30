@@ -1,16 +1,83 @@
 [gd_scene format=3 uid="uid://dphluq5em2tcf"]
 
-[ext_resource type="Texture2D" uid="uid://b1w065r6l6l63" path="res://sprite/onyxia-frame0.png" id="1_jemwy"]
 [ext_resource type="Script" uid="uid://cnq2dsstotaad" path="res://script/platformer/onyxia_platformer.gd" id="1_nfpsg"]
+[ext_resource type="Texture2D" uid="uid://d07j12v3ifrrs" path="res://sprite/walk/onyxia_walk1.png" id="2_3lpo5"]
+[ext_resource type="Texture2D" uid="uid://dv01lauu6iko5" path="res://sprite/air/onyxia_air1.png" id="2_leedf"]
+[ext_resource type="Texture2D" uid="uid://v56w1i4ph2ml" path="res://sprite/walk/onyxia_walk2.png" id="3_ibun7"]
+[ext_resource type="Texture2D" uid="uid://h1qr3kdky0sj" path="res://sprite/air/onyxia_air2.png" id="3_kyksn"]
+[ext_resource type="Texture2D" uid="uid://b7de5jl0wtev" path="res://sprite/walk/onyxia_walk3.png" id="4_l2wik"]
+[ext_resource type="Texture2D" uid="uid://cpudxtagt826v" path="res://sprite/air/onyxia_air3.png" id="4_x6st4"]
+[ext_resource type="Texture2D" uid="uid://cvnjygaamkjv8" path="res://sprite/walk/onyxia_walk4.png" id="5_g23wm"]
+[ext_resource type="Texture2D" uid="uid://gw43nypjgjv8" path="res://sprite/air/onyxia_air4.png" id="5_qqjlp"]
+[ext_resource type="Texture2D" uid="uid://b1co8n5uwsl2x" path="res://sprite/idle/onyxia_idle1.png" id="6_3tb0b"]
+[ext_resource type="Texture2D" uid="uid://d22u1mdesm7ra" path="res://sprite/idle/onyxia_idle2.png" id="7_8qcdk"]
+[ext_resource type="Texture2D" uid="uid://mjvhir5ewtl6" path="res://sprite/idle/onyxia_idle3.png" id="8_amd76"]
+[ext_resource type="Texture2D" uid="uid://c4c8esrvgtyuu" path="res://sprite/idle/onyxia_idle4.png" id="9_efphc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tb0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_leedf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kyksn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x6st4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qqjlp")
+}],
+"loop": true,
+"name": &"air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3tb0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8qcdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_amd76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_efphc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3lpo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ibun7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l2wik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g23wm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfpsg"]
 size = Vector2(11, 22)
 
 [node name="onyxia_platformer" type="CharacterBody2D" unique_id=339428091]
+texture_filter = 1
 script = ExtResource("1_nfpsg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1021266967]
-texture = ExtResource("1_jemwy")
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=568039315]
+sprite_frames = SubResource("SpriteFrames_3tb0b")
+animation = &"air"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1418987396]
 position = Vector2(2.5, 2)
@@ -18,3 +85,4 @@ shape = SubResource("RectangleShape2D_nfpsg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1344805843]
 visible = false
+zoom = Vector2(2.5, 2.5)

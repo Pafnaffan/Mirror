@@ -104,6 +104,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1vioo")
 
 [node name="platformer_level_test" type="Node2D" unique_id=696564293]
+texture_filter = 1
 
 [node name="TileMapPlatform_Always" type="TileMapLayer" parent="." unique_id=1157802524]
 tile_set = SubResource("TileSet_k8ll3")

@@ -34,6 +34,19 @@ func _physics_process(delta: float) -> void:
 			WorldManager.AxisId.from_axis_num(1),
 		))
 		
+	if !is_on_floor() :
+		$Animation.play("air");
+		AudioManager.stop_music();
+	elif Input.is_action_just_pressed("ui_right"):
+		$Animation.play("walk");
+		AudioManager.stop_music();
+	elif Input.is_action_just_pressed("ui_left"):
+		$Animation.play("walk");
+		AudioManager.play_music(preload("res://sound/heehee.mp3"),true,1);
+	elif !Input.is_action_pressed("ui_left") && !Input.is_action_pressed("ui_right") :
+		$Animation.play("idle");
+		AudioManager.stop_music();
+	
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
