@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bvrey65eh17xi"]
+
+[ext_resource type="Script" uid="uid://gom74en1154e" path="res://script/bloc.gd" id="1_au1vx"]
+[ext_resource type="Texture2D" uid="uid://cy3t3ctoaqem0" path="res://sprite/box.png" id="2_qc5rx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au1vx"]
+size = Vector2(128, 128)
+
+[node name="bloc" type="Area2D" unique_id=2010785194]
+script = ExtResource("1_au1vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1841829394]
+position = Vector2(0, -66)
+shape = SubResource("RectangleShape2D_au1vx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=327680506]
+texture_filter = 1
+position = Vector2(-64, -130)
+scale = Vector2(2.612245, 2.612245)
+texture = ExtResource("2_qc5rx")
+centered = false
