@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://d4gkt71fk6aak"]
 
 [ext_resource type="PackedScene" uid="uid://d1w5dowifxqyk" path="res://scene/platformer/platformer_level_base.tscn" id="1_vsgfu"]
-[ext_resource type="PackedScene" uid="uid://jirbm4k0wvu3" path="res://scene/platformer/level_exit.tscn" id="2_ljdhq"]
+[ext_resource type="PackedScene" uid="uid://dn7ig1mwodns7" path="res://scene/platformer/level_exit.tscn" id="2_ljdhq"]
+[ext_resource type="Texture2D" uid="uid://cqc0dadwak3mg" path="res://sprite/button/button1.png" id="3_j6bmu"]
+[ext_resource type="Texture2D" uid="uid://64mvc1x0m3gt" path="res://sprite/button/button2.png" id="4_wkcne"]
+[ext_resource type="Texture2D" uid="uid://d1r0lyu55o1hk" path="res://sprite/button/button3.png" id="5_8g8y7"]
 
 [node name="platformer_level_test" unique_id=696564293 instance=ExtResource("1_vsgfu")]
 
@@ -33,3 +36,18 @@ position = Vector2(102, 370)
 
 [node name="level_exit" parent="." index="6" unique_id=1711430791 instance=ExtResource("2_ljdhq")]
 position = Vector2(921, 272)
+
+[node name="Button1" type="Sprite2D" parent="." index="7" unique_id=1674504572]
+texture_filter = 1
+position = Vector2(167, 662)
+texture = ExtResource("3_j6bmu")
+
+[node name="Button2" type="Sprite2D" parent="." index="8" unique_id=1895646250]
+texture_filter = 1
+position = Vector2(270, 662)
+texture = ExtResource("4_wkcne")
+
+[node name="Button3" type="Sprite2D" parent="." index="9" unique_id=54637386]
+texture_filter = 1
+position = Vector2(373, 662)
+texture = ExtResource("5_8g8y7")

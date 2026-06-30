@@ -27,4 +27,4 @@ func _process(delta: float) -> void:
 
 
 func _on_time_win_timeout() -> void:
-	LevelManager.complete_level()
+	LevelManager.complete_level_survival()

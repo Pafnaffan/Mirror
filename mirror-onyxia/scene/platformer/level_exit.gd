@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func onyxia_leaving(body: Node) -> void:
 	if body.is_in_group("player"):
-		LevelManager.complete_level()
+		LevelManager.complete_level_puzzle()

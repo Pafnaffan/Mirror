@@ -1,13 +1,23 @@
 extends Control
 
-@onready var buttons = [
-	$VBoxContainer/HBoxContainer/PLevel1,
-	$VBoxContainer/HBoxContainer/PLevel2
+@onready var buttonsP = [
+	$b_puzzle_1,
+	$b_puzzle_2,
+	$b_puzzle_3
 ]
 
+@onready var buttonsS = [
+	$b_survival_1,
+	$b_survival_2,
+	$b_survival_3
+]
 
 func _ready() -> void:
-	for i in buttons.size():
+	for i in buttonsP.size():
 		var level = i + 1
-		buttons[i].disabled = level > LevelManager.levels_unlocked
-		buttons[i].pressed.connect(func(): LevelManager.go_to_level(level))
+		buttonsP[i].disabled = level > LevelManager.levels_puzzle_unlocked
+		buttonsP[i].pressed.connect(func(): LevelManager.go_to_level_puzzle(level))
+	for i in buttonsS.size():
+		var level = i + 1
+		buttonsS[i].disabled = level > LevelManager.levels_survival_unlocked
+		buttonsS[i].pressed.connect(func(): LevelManager.go_to_level_survival(level))
