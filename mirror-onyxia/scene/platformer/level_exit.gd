@@ -7,4 +7,6 @@ func _ready() -> void:
 
 func onyxia_leaving(body: Node) -> void:
 	if body.is_in_group("player"):
+		AudioManager.play_music(preload("res://sound/onyxia_sound.mp3"), false)
 		LevelManager.complete_level_puzzle()
+
