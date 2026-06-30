@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 		if change :
 			scale.y = -scale.y;
 	if position.x <= 0 - $CollisionShape2D.shape.size.x :
-		get_tree().change_scene_to_file("res://scene/menu.tscn")
+		AudioManager.play_music(preload("res://sound/petitjoueur.mp3"),false,100);
+		get_tree().change_scene_to_file("res://scene/menu.tscn");
 
 
 func _on_area_entered(area: Area2D) -> void:

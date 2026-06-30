@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dn7ig1mwodns7"]
 
-[ext_resource type="Script" path="res://scene/platformer/level_exit.gd" id="1_107le"]
+[ext_resource type="Script" uid="uid://ki08pcy08ysl" path="res://scene/platformer/level_exit.gd" id="1_107le"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7fq8"]
 size = Vector2(16, 32)

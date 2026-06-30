@@ -43,8 +43,9 @@ func fade_to_menu() -> void:
 	#fade_tween.tween_property(level_player, "volume_db", -80, 0.5)
 	fade_tween.tween_method(_set_crossfade_progress, 1.0, 0.0, 1)
 
-func play_music(stream: AudioStream, loop: bool = true) -> void:
+func play_music(stream: AudioStream, loop: bool = true, vol: int = -80) -> void:
 	music_player.stream = stream
+	music_player.volume_db = vol
 	music_player.play()
 
 func stop_music() -> void:
